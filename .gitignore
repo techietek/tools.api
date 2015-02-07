@@ -1,0 +1,5 @@
+*.pyc
+api/settings/local.py*
+api/db.*
+.idea/*
+.DS_Store*
