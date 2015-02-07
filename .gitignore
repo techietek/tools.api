@@ -1,5 +1,6 @@
 *.pyc
-api/settings/local.py*
+api/settings/local.py
+api/settings/production.py
 api/db.*
 .idea/*
 .DS_Store*
