@@ -27,8 +27,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'api.f5.cookie',
     'rest_framework',
+    'api.f5.cookie',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,7 +46,7 @@ MIDDLEWARE_CLASSES = (
 CORS_ORIGIN_WHITELIST = ()
 
 ROOT_URLCONF = 'api.urls'
-WSGI_APPLICATION = 'api.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

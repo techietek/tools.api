@@ -26,6 +26,6 @@ def decode(request):
                 data = decode_cookie(d['encoded_string'])
                 return Response(data)
             else:
-                return Response({"error": "encoded_string not parsed."})
+                return Response(data={"error": "encoded_string not parsed."}, status=500)
         except Exception as e:
-            return Response({"error": e.__str__()})
+            return Response(data={"error": e.__str__()}, status=500)
