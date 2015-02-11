@@ -20,12 +20,12 @@ def decode_cookie(encoded_string):
 @api_view(['POST'])
 def decode(request):
     if request.method == 'POST':
-        d = json.loads(request.body)
-        if 'encoded_string' in d:
-            try:
+        try:
+            d = json.loads(request.body)
+            if 'encoded_string' in d:
                 data = decode_cookie(d['encoded_string'])
                 return Response(data)
-            except Exception as e:
-                return Response({"error": e.__str__()})
-        else:
-            return Response({"error": "encoded_string not parsed."})
+            else:
+                return Response({"error": "encoded_string not parsed."})
+        except Exception as e:
+            return Response({"error": e.__str__()})
