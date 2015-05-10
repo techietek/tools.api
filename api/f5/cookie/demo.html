@@ -27,6 +27,12 @@
 			$scope.decodedData.panel = false;
 			$scope.errorData.panel = false;
 
+		    $scope.$watch('cookie_data', function (value) {
+		        if (!value) {
+    				$scope.decodedData.panel = false;
+					$scope.errorData.panel = false;
+		        }
+		    });
 		    $scope.decodeCookie = function() {
 		        $http({
 		            method : 'POST',
@@ -53,7 +59,7 @@
 
       <div class="page-header">
         <h1>F5 Cookie Decoder</h1>
-        <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+        <p class="lead">Useful when troubleshooting cookie persistence.</p>
       </div>
 
 		<form class="form-inline form-padding" name="cookieDecodeForm" novalidate>
@@ -68,8 +74,8 @@
 		        </div>
 		    </div>
 		</form>
-		<hr/>
 		<div ng-show="decodedData.panel" >
+			<hr/>
 		    <div class="alert alert-info">
 		        <h3>Yay! Decoded some stuff</h3>
 		        <blockquote>
@@ -82,9 +88,12 @@
 		</div>
 
 		<div ng-show="errorData.panel">
+			<hr/>
 		    <div class="alert alert-danger">
-		        <strong>Nay :( something upset me</strong> 
-        		<p>{{errorData.data.error}}</p>
+		        <h3>Nay :( something upset me</h3> 
+		        <blockquote>
+	        		<p>{{errorData.data.error}} for request with {{cookie_data}}</p>
+        		</blockquote>
 		    </div>
 		</div>
 
